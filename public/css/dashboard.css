@@ -1,0 +1,256 @@
+/* Dashboard Page Specific Styles */
+
+body,
+.content-wrapper {
+    background: #020202 !important;
+    color: #f8fafc;
+}
+
+.dashboard-container {
+    background: #020202;
+    min-height: 100vh;
+    padding: 1.5rem 0;
+}
+
+.dashboard-title {
+    color: #f8fafc;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    border-radius: 16px;
+    background: linear-gradient(135deg, #050505 0%, #0a0a0a 100%);
+    border: 1px solid #ef4444;
+    box-shadow: 0 16px 30px rgba(5, 5, 5, 0.5);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+        0 20px 40px rgba(239, 68, 68, 0.3),
+        0 0 0 1px rgba(239, 68, 68, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-color: #f87171;
+}
+
+.stat-card:hover::before {
+    opacity: 1;
+    animation: rotate 3s linear infinite;
+}
+
+.stat-card:hover::after {
+    left: 100%;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.stat-card:active {
+    transform: translateY(-4px) scale(1.01);
+}
+
+.stat-card .card-body {
+    padding: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.stat-card .card-title {
+    font-size: 0.9rem;
+    color: rgba(248, 250, 252, 0.7);
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.stat-card:hover .card-title {
+    color: #ef4444;
+}
+
+.stat-card .card-text {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #f8fafc;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover .card-text {
+    color: #fca5a5;
+    transform: scale(1.1);
+    text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+}
+
+/* Revenue Card Styles */
+.revenue-card {
+    border-radius: 16px;
+    background: linear-gradient(135deg, #0a0505 0%, #1a0a0a 50%, #0a0505 100%);
+    border: 1px solid #ef4444;
+    box-shadow: 0 16px 30px rgba(5, 5, 5, 0.5);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.revenue-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(50%); }
+}
+
+.revenue-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 20px 40px rgba(239, 68, 68, 0.2),
+        0 0 0 1px rgba(239, 68, 68, 0.5);
+    border-color: #f87171;
+}
+
+.revenue-card .card-body {
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.revenue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.revenue-label {
+    font-size: 1rem;
+    color: rgba(248, 250, 252, 0.7);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.revenue-amount {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #22c55e;
+    margin: 0;
+    text-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+    animation: revenueGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes revenueGlow {
+    from {
+        text-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+    }
+    to {
+        text-shadow: 0 0 40px rgba(34, 197, 94, 0.5), 0 0 60px rgba(34, 197, 94, 0.2);
+    }
+}
+
+.revenue-icon {
+    color: rgba(239, 68, 68, 0.5);
+    transition: all 0.3s ease;
+}
+
+.revenue-card:hover .revenue-icon {
+    color: #ef4444;
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* Chart Card Styles */
+.chart-card {
+    border-radius: 16px;
+    background: linear-gradient(135deg, #050505 0%, #0a0a0a 100%);
+    border: 1px solid #ef4444;
+    box-shadow: 0 16px 30px rgba(5, 5, 5, 0.5);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chart-card:hover {
+    box-shadow:
+        0 20px 40px rgba(239, 68, 68, 0.15),
+        0 0 0 1px rgba(239, 68, 68, 0.4);
+}
+
+.chart-card .card-body {
+    padding: 1.5rem;
+    position: relative;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.chart-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #f8fafc;
+    margin: 0;
+}
+
+.chart-subtitle {
+    font-size: 0.85rem;
+    color: rgba(248, 250, 252, 0.5);
+}
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+.chart-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(248, 250, 252, 0.6);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+.chart-loading.hidden {
+    display: none;
+}
